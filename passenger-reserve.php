@@ -1,21 +1,44 @@
+
 <?php
 session_start();
 include('includes/config.php');
-if(isset($_POST['submit']))
+//date_default_timezone_set('Africa /Nairobi');
+include('includes/checklogin.php');
+check_login();
+$aid=$_SESSION['id'];
+if(isset($_POST['update']))
 {
+
 $name=$_POST['name'];
+//$age=$_POST['age'];
+//$gender=$_POST['gender'];
+//$phoneno=$_POST['phoneno'];
+//$gender=$_POST['gender'];
+//$email=$_POST['email'];
+//$username=$_POST['username'];
+//$password=md5($_POST['password']);
+//$passwordconf=md5($_POST['passwordconf']);
 $train=$_POST['train'];
 $departure=$_POST['departure'];
 $destination=$_POST['destination'];
-$date=$_POST['date'];
+$date_travelling=$_POST['date_travelling'];
 $time=$_POST['time'];
-$query="insert into bookings(name,train,departure,destination,date,time) values(?,?,?,?,?,?)";
+//$status=$_POST['status'];
+//$date = date('d-m-Y h:i:s', time());
+$query="update  passenger set name=?,  train=?, departure=?, destination=?, date_travelling=?, time=? where id=?";
 $stmt = $mysqli->prepare($query);
-$rc=$stmt->bind_param('ssssss',$name,$train,$departure,$destination,$date,$time);
+$rc=$stmt->bind_param('ssssssi', $name,  $train, $departure, $destination, $date_travelling, $time,  $aid);
 $stmt->execute();
-echo"<script>alert('Successfully Booked A Train ');</script>";
+if($stmt)
+{
+	header("location:passenger-confirm-booking.php");
 }
-?>
+
+else
+{
+	echo "<script>alert('Please Confirm Your Booking Details');</script>";
+
+}} ?>
 
 <?php include("includes/header.php")?>
 <body class="cbp-spmenu-push">
@@ -78,7 +101,7 @@ $aid=$_SESSION['id'];
 
           <div class="form-group">
           <label class="col-sm-4 control-label">Travel Date</label>
-          <input type="date" name="date" id="date"  class="form-control" required="required" >
+          <input type="date" name="date_travelling" id="date_travelling"  class="form-control" required="required" >
           </div>
 
           <div class="form-group">
@@ -87,20 +110,9 @@ $aid=$_SESSION['id'];
           </div>
 
           <div class="col-sm-6 col-sm-offset-4">
-          <input type="submit" name="submit" Value="Book Train" class="btn btn-success mr-2 ">
+          <input type="submit" name="update" Value="Book Train" class="btn btn-success mr-2 ">
           </div>
-					
-<!--
-          <div class="form-group">
-          <label class="col-sm-4 control-label">My Password</label>
-          <input type="text" name="number" id="number"  class="form-control"value=" <?php echo $row->password;?>" readonly required="required" >
-          </div>
-<!--
-          <div class="form-group">
-          <label class="col-sm-4 control-label">Password</label>
-          <input type="text" name="password" id="password"  class="form-control" required="required" >
-          </div>
--->
+
 
           
           </form>
@@ -156,4 +168,4 @@ $aid=$_SESSION['id'];
    
 </body>
 </html>
-<?}?>
+<?php }?>

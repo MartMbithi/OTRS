@@ -75,17 +75,7 @@ $aid=$_SESSION['id'];
           <input type="text" name="passengers" id="passengers"  class="form-control" value="<?php echo $row->username;?>" readonly required="required" >
           </div>
 					
-<!--
-          <div class="form-group">
-          <label class="col-sm-4 control-label">My Password</label>
-          <input type="text" name="number" id="number"  class="form-control"value=" <?php echo $row->password;?>" readonly required="required" >
-          </div>
 
-          <div class="form-group">
-          <label class="col-sm-4 control-label">Password</label>
-          <input type="text" name="password" id="password"  class="form-control" required="required" >
-          </div>
--->
 
           
           </form>
@@ -141,4 +131,4 @@ $aid=$_SESSION['id'];
    
 </body>
 </html>
-<?}?>
+<?php }?>

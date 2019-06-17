@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 09, 2019 at 10:49 AM
+-- Generation Time: Jun 05, 2019 at 04:10 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`) VALUES
-(2, 'Mercy', 'mercymumo@gmail.com', 'b91faeddd266fe5f6100c3c60cb5a22f');
+(2, 'Mercy', 'mercymumo@gmail.com', 'mercy');
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,14 @@ INSERT INTO `bookings` (`id`, `name`, `train`, `departure`, `destination`, `date
 (4, 'Demo Passenger', 'Demo Train', 'Demo Station', 'Demo Destination', '2017-04-27', '01:00', 1),
 (5, 'mercy', '001', 'Machackos', 'Mombasa', '2019-04-30', '00:00', 0),
 (6, 'mercy', '001', 'Machackos', 'Mombasa', '2019-04-30', '00:00', 1),
-(7, ' Martin Mbithi', 'Demo Train', 'Departure Station', 'Demo Station', '2019-04-30', '13:00', 0);
+(7, ' Martin Mbithi', 'Demo Train', 'Departure Station', 'Demo Station', '2019-04-30', '13:00', 0),
+(8, '     Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30', '14:00', 0),
+(9, '     Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30', '14:00', 0),
+(10, '     Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30', '14:00', 0),
+(11, '     Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30', '14:00', 0),
+(12, '     Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30', '14:00', 0),
+(13, '       Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-31', '12:00', 0),
+(14, '        Martin Mbithi', ' Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30 19:17:05.4310', '12:00', 1);
 
 -- --------------------------------------------------------
 
@@ -114,17 +121,24 @@ CREATE TABLE `passenger` (
   `email` varchar(200) NOT NULL,
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `passwordconf` varchar(200) NOT NULL
+  `passwordconf` varchar(200) NOT NULL,
+  `train` varchar(200) NOT NULL,
+  `departure` varchar(200) NOT NULL,
+  `destination` varchar(200) NOT NULL,
+  `date_travelling` varchar(200) NOT NULL,
+  `time` varchar(200) NOT NULL,
+  `status` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `passenger`
 --
 
-INSERT INTO `passenger` (`id`, `name`, `age`, `gender`, `phoneno`, `date`, `email`, `username`, `password`, `passwordconf`) VALUES
-(3, 'Demo Passenger', '20', 'Male', '1234567890', '2019-04-26 13:27:03.5664', 'martdevelopers254@gmail.com', 'demousername', 'demo', ''),
-(4, 'mercy', '20', 'Female', '1234567890', '2019-04-29 11:27:29.6255', 'mercy@mail.com', 'Mercy254', 'Mercy', ''),
-(5, 'Martin Mbithi', '   23', 'Male', '    +2540704031263', '2019-05-08 13:52:25.3834', 'martinezmbithi@gmail.com', 'Mart', '3dc0c26f3ebf52dc86d42d50b8d16e5a', '3dc0c26f3ebf52dc86d42d50b8d16e5a');
+INSERT INTO `passenger` (`id`, `name`, `age`, `gender`, `phoneno`, `date`, `email`, `username`, `password`, `passwordconf`, `train`, `departure`, `destination`, `date_travelling`, `time`, `status`) VALUES
+(3, 'Demo Passenger', '20', 'Male', '1234567890', '2019-04-26 13:27:03.5664', 'martdevelopers254@gmail.com', 'demousername', 'demo', '', '', '', '', '', '', ''),
+(4, 'mercy', '20', 'Female', '1234567890', '2019-04-29 11:27:29.6255', 'mercy@mail.com', 'Mercy254', 'Mercy', '', '', '', '', '', '', ''),
+(5, '        Martin Mbithi', '   23', 'Male', '    +2540704031263', '2019-06-05 14:05:34.8335', 'martinezmbithi@gmail.com', 'Mart', '3dc0c26f3ebf52dc86d42d50b8d16e5a', '3dc0c26f3ebf52dc86d42d50b8d16e5a', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-06-12', '12:00', 'Paid'),
+(6, 'Martin Mbithi', '20', 'Male', '0737229778', '2019-05-30 09:32:37.9120', 'martinezmbithi@gmail.com', 'Martinez@', '3dc0c26f3ebf52dc86d42d50b8d16e5a', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -146,7 +160,9 @@ CREATE TABLE `payments` (
 INSERT INTO `payments` (`id`, `name`, `amount`, `services`) VALUES
 (1, 'Martin', 'Kes 1200', 'Transport Ticket'),
 (2, 'Demo Passenger', 'Ksh 120 ,000', 'Train Ticket'),
-(3, 'mercy', 'KSH 1200', 'Train Ticket');
+(3, 'mercy', 'KSH 1200', 'Train Ticket'),
+(4, '    Martin Mbithi', '1200', 'Train Ticket'),
+(5, '      Martin Mbithi', '100', 'Train Ticket');
 
 -- --------------------------------------------------------
 
@@ -227,7 +243,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `employee`
@@ -239,13 +255,13 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `passenger`
 --
 ALTER TABLE `passenger`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `train`

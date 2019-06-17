@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <?
+            <?php
             $aid=$_SESSION['id'];
       	$ret="select * from passenger where id=?";
       		$stmt= $mysqli->prepare($ret) ;
@@ -29,19 +29,7 @@
                 </a>
               </li>
               </li>
-              <!--
-			          <li>
-                <a href="passenger-profile-update.php">
-                <i class="fa fa-gear"></i> <span>Update Profile</span>
-                <small class="label pull-right label-info"></small>
-                </a>
-              </li>--
-              <li>
-                <a href="passenger-profile.php">
-                <i class="fa fa-user"></i> <span>My Profile</span>
-                <small class="label pull-right label-info"></small>
-                </a>
-              </li>-->
+            
               <li>
                 <a href="passenger-view-trains.php">
                 <i class="fa fa-train"></i> <span>Trains</span>
@@ -56,36 +44,24 @@
                 </a>
               </li>
 
-<!--
-              <li>
-                <a href="passenger-view-reserved.php">
-                <i class="fa fa-eye"></i> <span>View Reserved</span>
-                <small class="label pull-right label-info"></small>
-                </a>
-              </li>
--->
-
               <li>
                 <a href="passenger-manage-reservations.php">
-                <i class="fa fa-cog"></i> <span>Manage Booked Transports</span>
+                <i class="fa fa-cog"></i> <span>Cancel Booked Transports</span>
                 <small class="label pull-right label-info"></small>
                 </a>
               </li>
 
 
-             
-
-
-              <li>
-                <a href="passenger-pay-bookings.php">
-                <i class="fa fa-money"></i> <span>Payments</span>
+                      <li>
+                <a href="passenger-view-bookings.php">
+                <i class="fa fa-ticket"></i> <span>My Tickets</span>
                 <small class="label pull-right label-info"></small>
                 </a>
               </li>
        
       
           </div>
-          <!-- /.navbar-collapse -->
+         
       </nav>
     </aside>
-    <?}?>
+    <?php }?>

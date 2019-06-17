@@ -10,23 +10,34 @@ if(isset($_POST['update']))
 {
 
 $name=$_POST['name'];
-$age=$_POST['age'];
-$gender=$_POST['gender'];
-$phoneno=$_POST['phoneno'];
+//$age=$_POST['age'];
 //$gender=$_POST['gender'];
-$email=$_POST['email'];
-$username=$_POST['username'];
-$password=md5($_POST['password']);
-$passwordconf=md5($_POST['passwordconf']);
+//$phoneno=$_POST['phoneno'];
+//$gender=$_POST['gender'];
+//$email=$_POST['email'];
+//$username=$_POST['username'];
+//$password=md5($_POST['password']);
+//$passwordconf=md5($_POST['passwordconf']);
+$train=$_POST['train'];
+$departure=$_POST['departure'];
+$destination=$_POST['destination'];
+$date_travelling=$_POST['date_travelling'];
+$time=$_POST['time'];
+$status=$_POST['status'];
 //$date = date('d-m-Y h:i:s', time());
-$query="update  passenger set name=?, age=?, gender=?,  phoneno=?, email=?, username=?, password=?, passwordconf=? where id=?";
+$query="update  passenger set name=?,  train=?, departure=?, destination=?, date_travelling=?, time=?,status=? where id=?";
 $stmt = $mysqli->prepare($query);
-$rc=$stmt->bind_param('ssssssssi', $name, $age, $gender, $phoneno, $email, $username, $password, $passwordconf, $aid);
-$stmt->execute();
-echo"<script>alert('Your Profile Has Been Updated Successfully');</script>";
+$rc=$stmt->bind_param('sssssssi', $name,  $train, $departure, $destination, $date_travelling, $time, $status,  $aid);
+$stmt->execute();if($stmt)
+{
+	header("location:passenger-view-bookings.php");
 }
-?>
 
+else
+{
+	echo "<script>alert('Please Confirm Your Payment');</script>";
+
+}} ?>
 <?php include("includes/header.php")?>
 <body class="cbp-spmenu-push">
 	<div class="main-content">
@@ -40,7 +51,19 @@ echo"<script>alert('Your Profile Has Been Updated Successfully');</script>";
 		<?php include("includes/navbar.php")?>
 		<!-- //header-ends -->
 		<!-- main content start-->
-        <?php
+        
+		<div id="page-wrapper">
+			<div class="main-page">
+				<div class="forms">
+                <span class="badge badge-success"><h3>Success! Please Confirm Your Payment</h3></span>
+					
+					<div class=" form-grids row form-grids-right">
+						<div class="widget-shadow " data-example-id="basic-forms"> 
+							<div class="form-title">
+								
+							</div>
+							<div class="form-body">
+							<?php
 $aid=$_SESSION['id'];
 	$ret="select * from passenger where id=?";
 		$stmt= $mysqli->prepare($ret) ;
@@ -51,64 +74,46 @@ $aid=$_SESSION['id'];
 	   while($row=$res->fetch_object())
 	  {
 	  	?>
-		<div id="page-wrapper">
-			<div class="main-page">
-				<div class="forms">
-					<h2 class="title1"> <?php echo $row->username;?> Update Your Profile Details</h2>
-					
-					<div class=" form-grids row form-grids-right">
-						<div class="widget-shadow " data-example-id="basic-forms"> 
-							<div class="form-title">
-								
-							</div>
-							<div class="form-body">
 
 
-                                        <form method="post" action="" name="changeprofile" id="change-profile"class="form-horizontal" >
-                                        
-																				
+          <form method="post" action="" name="book train" class="form-horizontal" >
           <div class="form-group">
           <label class="col-sm-4 control-label">My Name </label>
-          <input type="text" name="name" id="name" value="<?php echo $row->name;?>" readonly class="form-control" required="required" >
-          </div>
-
-          <div class="form-group">
-          <label class="col-sm-4 control-label">My Age </label>
-          <input type="text" name="age" id="age" value=" <?php echo $row->age;?>" readonly class="form-control" required="required" >
-          </div>
-
-          <div class="form-group">
-          <label class="col-sm-4 control-label">My Gender</label>
-          <input type="text" name="gender" id="gender" value="<?php echo $row->gender;?>" readonly class="form-control" required="required" >
-          </div>
-          <div class="form-group">
-          <label class="col-sm-4 control-label">My Phone Number</label>
-          <input type="text" name="phoneno" id="phoneno" value=" <?php echo $row->phoneno;?>" class="form-control" required="required" >
-          </div>
-
-          <div class="form-group">
-          <label class="col-sm-4 control-label">My Email Address</label>
-          <input type="email" name="email" id="email"  class="form-control" value=" <?php echo $row->email;?>"  required="required" >
-          </div>
-
-          <div class="form-group">
-          <label class="col-sm-4 control-label">My Username</label>
-          <input type="text" name="username" id="username"  class="form-control" value="<?php echo $row->username;?>"  required="required" >
+          <input type="text" name="name" id="name" value=" <?php echo $row->name;?>" readonly class="form-control" required="required" >
           </div>
 					
-
           <div class="form-group">
-          <label class="col-sm-4 control-label">My Password</label>
-          <input type="password" name="password" id="password"  class="form-control"  required="required" >
+          <label class="col-sm-4 control-label">Train</label>
+          <input type="text" name="train" id="train" value='<?php echo $row->train;?>' readonly   class="form-control" required="required" >
           </div>
 
           <div class="form-group">
-          <label class="col-sm-4 control-label">Confirm Password</label>
-          <input type="password" name="passwordconf" id="passwordconf"  class="form-control"  required="required" >
+          <label class="col-sm-4 control-label">Departure Station</label>
+          <input type="text" name="departure" id="departure" value='<?php echo $row->departure;?>' readonly  class="form-control" required="required" >
+          </div>
+
+          <div class="form-group">
+          <label class="col-sm-4 control-label">Destination</label>
+          <input type="text" name="destination" id="destination" value='<?php echo $row->destination;?>' readonly  class="form-control" required="required" >
+          </div>
+
+          <div class="form-group">
+          <label class="col-sm-4 control-label">Travel Date</label>
+          <input type="text" name="date_travelling" id="date_travelling"  value='<?php echo $row->date;?>' readonly class="form-control" required="required" >
+          </div>
+
+          <div class="form-group">
+          <label class="col-sm-4 control-label">Travel Time</label>
+          <input type="text" name="time" id="time"  class="form-control" value='<?php echo $row->time;?>' readonly   required="required" >
+          </div>
+
+          <div class="form-group">
+          <label class="col-sm-4 control-label">Status</label>
+          <input type="text" name="status" id='status' value='Paid' readonly  class="form-control"   required="required" >
           </div>
 
           <div class="col-sm-6 col-sm-offset-4">
-          <input type="submit" name="update" Value="Update Profile" class="btn btn-danger mr-2 ">
+          <input type="submit" name="update" Value="Confirm Payment" class="btn btn-success mr-2 ">
           </div>
 
 
@@ -163,7 +168,6 @@ $aid=$_SESSION['id'];
 	
 	<!-- Bootstrap Core JavaScript -->
    <script src="js/bootstrap.js"> </script>
-
    
 </body>
 </html>

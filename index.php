@@ -44,7 +44,7 @@ $stmt=$mysqli->prepare("SELECT email,password,id FROM passenger WHERE email=? an
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page login-page ">
-				<h2 class="title1">Railway Management System Passenger Login</h2>
+				<h2 class="title1"> Passenger Login</h2>
 				<div class="widget-shadow">
 					<div class="login-body">
 						<form action="#" method="post">
@@ -52,10 +52,7 @@ $stmt=$mysqli->prepare("SELECT email,password,id FROM passenger WHERE email=? an
 							<input type="password" name="password" class="lock" placeholder="Password" required="">
 							<div class="forgot-grid">
 								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
-								<!--
-								<div class="forgot">
-									<a href="#">forgot password?</a>
-								</div>-->
+								
 								<div class="clearfix"> </div>
 							</div>
 							<input type="submit" name="login" class="btn btn-success btn-block" value="Login Me In" >

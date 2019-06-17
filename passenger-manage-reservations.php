@@ -59,32 +59,32 @@ $aid=$_SESSION['id'];
                                         <form method="post" action="" name="book train" class="form-horizontal" >
           <div class="form-group">
           <label class="col-sm-4 control-label">My Name </label>
-          <input type="text" name="name" id="name" value=" <?php echo $row->name;?>" class="form-control" required="required" >
+          <input type="text" name="name" id="name" value=" <?php echo $row->name;?>" readonly class="form-control" required="required" >
           </div>
 
           <div class="form-group">
           <label class="col-sm-4 control-label">Train</label>
-          <input type="text" name="train" id="train"  class="form-control" required="required" >
+          <input type="text" name="train" id="train" value=' <?php echo $row->train;?>' readonly class="form-control" required="required" >
           </div>
 
           <div class="form-group">
           <label class="col-sm-4 control-label">Departure Station</label>
-          <input type="text" name="departure" id="departure"   class="form-control" required="required" >
+          <input type="text" name="departure" id="departure" value='<?php echo $row->departure;?>' readonly  class="form-control" required="required" >
           </div>
 
           <div class="form-group">
           <label class="col-sm-4 control-label">Destination</label>
-          <input type="text" name="destination" id="destination" class="form-control" required="required" >
+          <input type="text" name="destination" id="destination" value='<?php echo $row->destination;?>' readonly  class="form-control" required="required" >
           </div>
 
           <div class="form-group">
           <label class="col-sm-4 control-label">Travel Date</label>
-          <input type="date" name="date" id="date"  class="form-control" required="required" >
+          <input type="text" name="date" id="date"  class="form-control" value='<?php echo $row->date_travelling;?>' readonly required="required" >
           </div>
 
           <div class="form-group">
           <label class="col-sm-4 control-label">Travel Time</label>
-          <input type="time" name="time" id="time"  class="form-control"   required="required" >
+          <input type="time" name="time" id="time" value="<?php echo $row->time;?>" readonly  class="form-control"   required="required" >
           </div>
 
 					<div class="form-group">
@@ -96,17 +96,7 @@ $aid=$_SESSION['id'];
           <input type="submit" name="submit" Value="Cancel Train" class="btn btn-danger mr-2 ">
           </div>
 					
-<!--
-          <div class="form-group">
-          <label class="col-sm-4 control-label">My Password</label>
-          <input type="text" name="number" id="number"  class="form-control"value=" <?php echo $row->password;?>" readonly required="required" >
-          </div>
-<!--
-          <div class="form-group">
-          <label class="col-sm-4 control-label">Password</label>
-          <input type="text" name="password" id="password"  class="form-control" required="required" >
-          </div>
--->
+
 
           
           </form>
@@ -162,4 +152,4 @@ $aid=$_SESSION['id'];
    
 </body>
 </html>
-<?}?>
+<?php }?>
