@@ -21,8 +21,9 @@ $destination=$_POST['destination'];
 $time=$_POST['time'];
 $passengers=$_POST['passengers'];
 $number=$_POST['number'];
+$fare=$_POST['fare'];
 //$time=$_POST['time'];
-$sql="INSERT INTO train (name,route,current,destination,time,passengers,number)VALUES(:name,:route,:current,:destination,:time,:passengers,:number)";
+$sql="INSERT INTO train (name,route,current,destination,time,passengers,number,fare)VALUES(:name,:route,:current,:destination,:time,:passengers,:number, :fare)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':name',$name,PDO::PARAM_STR);
 $query->bindParam(':route',$route,PDO::PARAM_STR);
@@ -31,7 +32,7 @@ $query->bindParam(':destination',$destination, PDO::PARAM_STR);
 $query->bindParam(':time',$time, PDO::PARAM_STR);
 $query->bindParam(':passengers',$passengers, PDO::PARAM_STR);
 $query->bindParam(':number',$number, PDO::PARAM_STR);
-//$query->bindParam(':age',$age, PDO::PARAM_STR);
+$query->bindParam(':fare',$fare, PDO::PARAM_STR);
 
 
 $query->execute();
@@ -114,12 +115,12 @@ $error="Something Went Wrong. Please Try Again";
           <label class="col-sm-4 control-label">Train Number</label>
           <input type="text" name="number" id="number"  class="form-control" required="required" >
           </div>
-<!--
+
           <div class="form-group">
-          <label class="col-sm-4 control-label">Password</label>
-          <input type="text" name="password" id="password"  class="form-control" required="required" >
+          <label class="col-sm-4 control-label">Train Fare <span class="badge badge-warning">Ksh</span></label>
+          <input type="text" name="fare" id="fare"  class="form-control" required="required" >
           </div>
--->
+
 
           <div class="col-sm-6 col-sm-offset-4">
           <input type="submit" name="submit" Value="Add Train Record" class="btn btn-success mr-2 ">

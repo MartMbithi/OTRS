@@ -93,52 +93,7 @@ echo"<script>alert('Successfully Created Account ');</script>";
 								</a>
 							</div>
 					</form>
-                        <!--
-				<form action="" method="post">
-					<div class="sign-u">
-					<input type="text" id="name" placeholder="Full Name" required="">
-						<div class="clearfix"> </div>
-					</div>
-					<div class="sign-u">
-								<input type="text" id="age" placeholder="Age" required="">
-						<div class="clearfix"> </div>
-					</div>
-                    <div class="sign-u">
-								<input type="text" id="gender" placeholder="Gender" required="">
-						<div class="clearfix"> </div>
-					</div>
-                    <div class="sign-u">
-								<input type="text" id="phoneno" placeholder="Phone Number" required="">
-						<div class="clearfix"> </div>
-					</div>
-					<div class="sign-u">
-								<input type="email"  id="email" placeholder="Email Address" required="">
-						<div class="clearfix"> </div>
-					</div>
-                    <div class="sign-u">
-								<input type="text" id="username" placeholder="Username" required="">
-						<div class="clearfix"> </div>
-					</div>
-                    <div class="sign-u">
-								<input type="password" id="password" placeholder="Password" required="">
-						<div class="clearfix"> </div>
-					</div>
-					<!--
-					<h6>Login Information :</h6>
-					<div class="sign-u">
-								<input type="password" placeholder="Password" required="">
-						<div class="clearfix"> </div>
-					</div>
-					<div class="sign-u">
-								<input type="password" placeholder="Confirm Password" required="">
-						</div>
-						<div class="clearfix"> </div>
-					<div class="sub_home">
-                    <input type="submit" name="signup" class="btn btn-success btn-block" value="Sign Me Up" >
-						<div class="clearfix"> </div>
-					</div>
-					
-				</form>-->
+              
                 
 				</div>
 			</div>

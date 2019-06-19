@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 05, 2019 at 04:10 PM
+-- Generation Time: Jun 19, 2019 at 04:12 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`) VALUES
-(2, 'Mercy', 'mercymumo@gmail.com', 'mercy');
+(3, 'admin', 'admin@rails.com', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -64,20 +64,8 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `name`, `train`, `departure`, `destination`, `date`, `time`, `status`) VALUES
-(1, 'demo booking', 'ddemo train', 'demo station', 'demo destination', 'demo date', 'demo time', 1),
-(2, 'Demo Passenger', 'Demo Train', 'Demo Station', 'Demo Destination', '2019-04-26', '13:00', 0),
-(3, 'Demo Passenger', 'Demo Train', 'Demo Passenger', 'Demo Destination', '2019-01-26', '01:00', 0),
-(4, 'Demo Passenger', 'Demo Train', 'Demo Station', 'Demo Destination', '2017-04-27', '01:00', 1),
-(5, 'mercy', '001', 'Machackos', 'Mombasa', '2019-04-30', '00:00', 0),
-(6, 'mercy', '001', 'Machackos', 'Mombasa', '2019-04-30', '00:00', 1),
-(7, ' Martin Mbithi', 'Demo Train', 'Departure Station', 'Demo Station', '2019-04-30', '13:00', 0),
-(8, '     Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30', '14:00', 0),
-(9, '     Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30', '14:00', 0),
-(10, '     Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30', '14:00', 0),
-(11, '     Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30', '14:00', 0),
-(12, '     Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30', '14:00', 0),
-(13, '       Martin Mbithi', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-31', '12:00', 0),
-(14, '        Martin Mbithi', ' Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-05-30 19:17:05.4310', '12:00', 1);
+(15, '  Martin Mbithi', 'Admiraal de Ruijter ', 'Nairobi', 'Kisumu', '2019-06-20', '01:00', 0),
+(16, '   Martin Mbithi', ' Admiraal de Ruijter ', 'Nairobi', 'Kisumu', '2019-06-19 17:00:09.4837', '01:00', 1);
 
 -- --------------------------------------------------------
 
@@ -103,7 +91,8 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`id`, `name`, `idno`, `address`, `age`, `phone`, `email`, `username`, `password`) VALUES
 (2, 'mercy', '1270001', 'Demo Adress', '29', '09876543', 'mercy@mail.com', 'Mercy254', 'Mercy'),
-(3, 'Demo Employee', '127.0.0.1', 'Demo Address', '00', '09876543', 'demo@mail.com', 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229');
+(3, 'Demo Employee', '127.0.0.1', 'Demo Address', '00', '09876543', 'demo@mail.com', 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229'),
+(4, 'Demo Employee', '127.0.0.1', 'Demo Address', '20', '09876543', 'martdevelopers254@gmail.com', 'mart', '1722a28089f91b73fff8708c26800a5e');
 
 -- --------------------------------------------------------
 
@@ -135,10 +124,7 @@ CREATE TABLE `passenger` (
 --
 
 INSERT INTO `passenger` (`id`, `name`, `age`, `gender`, `phoneno`, `date`, `email`, `username`, `password`, `passwordconf`, `train`, `departure`, `destination`, `date_travelling`, `time`, `status`) VALUES
-(3, 'Demo Passenger', '20', 'Male', '1234567890', '2019-04-26 13:27:03.5664', 'martdevelopers254@gmail.com', 'demousername', 'demo', '', '', '', '', '', '', ''),
-(4, 'mercy', '20', 'Female', '1234567890', '2019-04-29 11:27:29.6255', 'mercy@mail.com', 'Mercy254', 'Mercy', '', '', '', '', '', '', ''),
-(5, '        Martin Mbithi', '   23', 'Male', '    +2540704031263', '2019-06-05 14:05:34.8335', 'martinezmbithi@gmail.com', 'Mart', '3dc0c26f3ebf52dc86d42d50b8d16e5a', '3dc0c26f3ebf52dc86d42d50b8d16e5a', 'Demo Train', 'Demo Departure Station', 'Demo Destination', '2019-06-12', '12:00', 'Paid'),
-(6, 'Martin Mbithi', '20', 'Male', '0737229778', '2019-05-30 09:32:37.9120', 'martinezmbithi@gmail.com', 'Martinez@', '3dc0c26f3ebf52dc86d42d50b8d16e5a', '', '', '', '', '', '', '');
+(7, '  Martin Mbithi', '21', 'Male', '+254724947439', '2019-06-19 14:04:43.1128', 'martdevelopers254@gmail.com', 'mart', '1722a28089f91b73fff8708c26800a5e', '', 'Admiraal de Ruijter ', 'Nairobi', 'Kisumu', '2019-06-19 17:00:09.4837', '01:00', 'Paid');
 
 -- --------------------------------------------------------
 
@@ -158,11 +144,7 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `name`, `amount`, `services`) VALUES
-(1, 'Martin', 'Kes 1200', 'Transport Ticket'),
-(2, 'Demo Passenger', 'Ksh 120 ,000', 'Train Ticket'),
-(3, 'mercy', 'KSH 1200', 'Train Ticket'),
-(4, '    Martin Mbithi', '1200', 'Train Ticket'),
-(5, '      Martin Mbithi', '100', 'Train Ticket');
+(6, ' Martin Mbithi', '2500', 'Train Ticket');
 
 -- --------------------------------------------------------
 
@@ -178,16 +160,19 @@ CREATE TABLE `train` (
   `destination` varchar(200) NOT NULL,
   `time` varchar(200) NOT NULL,
   `passengers` varchar(200) NOT NULL,
-  `number` varchar(200) NOT NULL
+  `number` varchar(200) NOT NULL,
+  `fare` varchar(2000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `train`
 --
 
-INSERT INTO `train` (`id`, `name`, `route`, `current`, `destination`, `time`, `passengers`, `number`) VALUES
-(2, 'Demo Train', 'Demo Route', 'Demo Current Station', 'Demo Destination', '00:55', '200', 'T-002'),
-(3, 'Demo Train one', 'Demo TRain Route', 'Demo Current Station', 'Demo Destination', '13:20', '100', 'T-078');
+INSERT INTO `train` (`id`, `name`, `route`, `current`, `destination`, `time`, `passengers`, `number`, `fare`) VALUES
+(5, 'Admiraal de Ruijter', ' Nairobi-Kisumu', 'Nairobi', 'Kisumu', '01:00', '120', 'T-002', '2500'),
+(6, 'Benjamin Britten', 'Nairobi-Nakuru', 'Nairobi', 'Nakuru', '06:00', '100', 'T-003', '1500'),
+(7, 'Bon Accord', 'Nairobi-Mombasa', 'Nairobi', 'Mombasa', '09:00', '100', 'T-004', '3000'),
+(8, 'Capitals United Express', 'Mombasa-Nairobi-Kampala', 'Mombasa', 'Kampala', '13:00', '300', 'T-005', '4500');
 
 --
 -- Indexes for dumped tables
@@ -237,37 +222,37 @@ ALTER TABLE `train`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `passenger`
 --
 ALTER TABLE `passenger`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `train`
 --
 ALTER TABLE `train`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -47,6 +47,7 @@ $msg="Train Records Successfully Removed";
                           <th>Time</th>
                           <th>No. Passengers</th>
                           <th>Train Number</th>
+						  <th>Train Fare</th>
                            </tr>
                             </thead>
                              <tbody>
@@ -67,7 +68,7 @@ foreach($results as $result)
                                             <td><?php echo htmlentities($result->time);?></td>
                                             <td><?php echo htmlentities($result->passengers);?></td>
                                             <td><?php echo htmlentities($result->number);?></td>
-
+											<td>Ksh<?php echo htmlentities($result->fare);?></td>
                                             <!--
                                             <td><?php echo htmlentities($result->phone);?></td>
                                             <td><?php echo htmlentities($result->ailment);?></td>

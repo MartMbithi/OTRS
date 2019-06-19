@@ -13,7 +13,7 @@ $query-> execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
-$_SESSION['alogin']=$_POST['id'];
+//$_SESSION['alogin']=$_POST['id'];
 echo "<script type='text/javascript'> document.location = 'admin-dashboard.php'; </script>";
 } else{
 

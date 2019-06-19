@@ -47,7 +47,7 @@ $msg="Train Records Successfully Removed";
                           <th>Date Enroled</th>
                           <th>Email </th>
 													<th>Username</th>
-													<th>Password</th>
+													
                            </tr>
                             </thead>
                              <tbody>
@@ -68,7 +68,7 @@ foreach($results as $result)
                                             <td><?php echo htmlentities($result->date);?></td>
                                             <td><?php echo htmlentities($result->email);?></td>
                                             <td><?php echo htmlentities($result->username);?></td>
-                                            <td><?php echo htmlentities($result->password);?></td>
+                                            
 																						<!--
                                           <td><?php echo htmlentities($result->password);?></td>
                                             <td><a href="admin-manage-out-patient-details.php?del=<?php echo $result->id;?>" onclick="return confirm('Do You Want To Remove This Record ?');"><i class="fa fa-trash-o"></i></a></td>-->

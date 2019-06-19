@@ -165,11 +165,11 @@ foreach($results as $result)
                           <th>Enrollment Date</th>
                           <th>Email</th>
                           <th>Username</th>
-                          <th>Password</th>
+                          
                            </tr>
                             </thead>
                              <tbody>
-                             <?php $sql = "SELECT * from  passenger";
+                             <?php $sql = "SELECT name, age, gender, phoneno, date, email, username from  passenger";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);

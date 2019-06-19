@@ -35,6 +35,7 @@ $aid=$_SESSION['id'];?>
                           <th>Time</th>
                           <th>No. Passengers</th>
                           <th>Train Number</th>
+						  <th>Train Fare</th>
                            </tr>
                             </thead>
                              <tbody>
@@ -57,6 +58,7 @@ $aid=$_SESSION['id'];?>
                     <td><?php echo $row->time;?></td>
                     <td><?php echo $row->passengers;?></td>
                     <td><?php echo $row->number;?></td>
+					<td>Ksh<?php echo $row->fare;?></td>
 
                                             <!--
                                             <td><?php echo htmlentities($result->phone);?></td>

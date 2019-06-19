@@ -62,7 +62,7 @@ foreach($results as $result)
 {				?>
                                             <td><?php echo htmlentities($cnt);?></td>
 											<td><?php echo htmlentities($result->name);?></td>
-											<td><?php echo htmlentities($result->amount);?></td>
+											<td>Ksh <?php echo htmlentities($result->amount);?></td>
 											<td><?php echo htmlentities($result->services);?></td>
                                             <!--
                                             <td><?php echo htmlentities($result->destination);?></td>

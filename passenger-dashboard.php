@@ -58,7 +58,58 @@ $aid=$_SESSION['id'];?>
         	</div>
             
         	
-        	<div class="clearfix"> </div>
+        	<div class="clearfix"></div>
+			<div class="tables">
+					<h2 class="title1">View Our Trains</h2>
+                    
+					
+					<div class="bs-example widget-shadow" data-example-id="contextual-table"> 
+						
+						<table class="table"> <thead> <tr> <th>#</th>
+                         <th> Name</th>
+                          <th>Train Route</th> 
+                          <th>Current Station</th>
+                          <th>Destination</th>
+                          <th>Time</th>
+                          <th>No. Passengers</th>
+                          <th>Train Number</th>
+						  <th>Train Fare</th>
+                           </tr>
+                            </thead>
+                             <tbody>
+                             <?php
+                    $aid=$_SESSION['id'];
+                   $ret="SELECT * FROM train";
+                    $stmt= $mysqli->prepare($ret) ;
+                    //$stmt->bind_param('i',$aid);
+                    $stmt->execute() ;//ok
+                    $res=$stmt->get_result();
+                    $cnt=1;
+                    while($row=$res->fetch_object())
+                    	  {
+                    	  	?>
+                    <tr><td><?php echo $cnt;;?></td>
+                    <td><?php echo $row->name;?> </td>
+                    <td><?php echo $row->route;?></td>
+                    <td><?php echo $row->current;?></td>
+                    <td><?php echo $row->destination;?></td>
+                    <td><?php echo $row->time;?></td>
+                    <td><?php echo $row->passengers;?></td>
+                    <td><?php echo $row->number;?></td>
+					<td>Ksh<?php echo $row->fare;?></td>
+
+                                            <!--
+                                            <td><?php echo htmlentities($result->phone);?></td>
+                                            <td><?php echo htmlentities($result->ailment);?></td>
+                                          <td><?php echo htmlentities($result->password);?></td>
+                                            <td><a href="admin-manage-out-patient-details.php?del=<?php echo $result->id;?>" onclick="return confirm('Do You Want To Remove This Record ?');"><i class="fa fa-trash-o"></i></a></td>-->
+										</tr> 
+                         </tbody> 
+                         <?php $cnt=$cnt+1; } ?>
+                         </table> 
+					</div>
+					
+				</div>
             
 		</div>
 	

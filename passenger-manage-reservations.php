@@ -67,6 +67,8 @@ $aid=$_SESSION['id'];
           <input type="text" name="train" id="train" value=' <?php echo $row->train;?>' readonly class="form-control" required="required" >
           </div>
 
+		  
+
           <div class="form-group">
           <label class="col-sm-4 control-label">Departure Station</label>
           <input type="text" name="departure" id="departure" value='<?php echo $row->departure;?>' readonly  class="form-control" required="required" >
