@@ -4,7 +4,7 @@ include('includes/config.php');
 if(isset($_POST['login']))
 {
 $email=$_POST['email'];
-$password=md5($_POST['password']);
+$password=sha1($_POST['password']);
 $stmt=$mysqli->prepare("SELECT email,password,id FROM passenger WHERE email=? and password=? ");
 				$stmt->bind_param('ss',$email,$password);
 				$stmt->execute();

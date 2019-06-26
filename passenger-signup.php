@@ -9,7 +9,7 @@ $gender=$_POST['gender'];
 $phoneno=$_POST['phoneno'];
 $email=$_POST['email'];
 $username=$_POST['username'];
-$password=md5($_POST['password']);
+$password=sha1($_POST['password']);
 
 $query="insert into passenger(name,age,gender,phoneno,email,username,password) values(?,?,?,?,?,?,?)";
 $stmt = $mysqli->prepare($query);

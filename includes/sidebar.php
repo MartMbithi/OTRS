@@ -46,7 +46,7 @@
 
               <li>
                 <a href="passenger-manage-reservations.php">
-                <i class="fa fa-cog"></i> <span>Cancel Booked Transports</span>
+                <i class="fa fa-cog"></i> <span>Cancel Travel</span>
                 <small class="label pull-right label-info"></small>
                 </a>
               </li>
