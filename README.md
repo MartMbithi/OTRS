@@ -1,7 +1,9 @@
-# OTRS
-OTRS-Online Train Reservation System is a web application bullt on core php, js, HTML5 and Bootstrap
+# ORRS
+ORRS-Orion Railway Reservation  System is a web application crafted using core php ,Javascript , HTML5, CSS3 and Bootstrap.
 
+<hr>
+# Admin Login
 email = admin@rails.com
 password = admin
-
+<hr>
 
