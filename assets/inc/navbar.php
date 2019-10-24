@@ -1,6 +1,9 @@
 <?php
+   /**
+    *Server side code to get details of single passenger using id 
+    */
     $aid=$_SESSION['pass_id'];
-    $ret="select * from orrs_passenger where pass_id=?";
+    $ret="select * from orrs_passenger where pass_id=?";//fetch details of pasenger
     $stmt= $mysqli->prepare($ret) ;
     $stmt->bind_param('i',$aid);
     $stmt->execute() ;//ok
