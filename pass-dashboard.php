@@ -36,17 +36,17 @@
               </a>
           </div>
             <div class="col-12 col-lg-6 col-xl-3">
-              <a href="">
+              <a href="pass-my-booked-train.php">
                 <div class="widget widget-tile">
                   <div class="chart sparkline"><i class="material-icons">add_shopping_cart</i></div>
                   <div class="data-info">
-                    <div class="desc">Train Bookings</div>
+                    <div class="desc">Train Booked</div>
                   </div>
                 </div>
               </a>
             </div>
             <div class="col-12 col-lg-6 col-xl-3">
-              <a href="">
+              <a href="pass-cancel-train.php">
                   <div class="widget widget-tile">
                     <div class="chart sparkline"><i class ="material-icons">backspace</i></div>
                     <div class="data-info">
@@ -57,11 +57,11 @@
             </div>
 
             <div class="col-12 col-lg-6 col-xl-3">
-              <a href="">
+              <a href="pass-view-ticket.php">
                 <div class="widget widget-tile">
-                  <div class="chart sparkline" ><i class ="material-icons">directions_transit</i></div>
+                  <div class="chart sparkline" ><i class ="material-icons">burst_mode</i></div>
                   <div class="data-info">
-                    <div class="desc">Trains</div>
+                    <div class="desc">Tickets</div>
                   </div>
                 </div>
               </a>
