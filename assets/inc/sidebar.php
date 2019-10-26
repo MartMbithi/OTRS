@@ -54,9 +54,9 @@
                   </li>
                   <li class="parent"><a href="#"><i class="icon mdi mdi-ticket-confirmation"></i><span>Tickets</span></a>
                     <ul class="sub-menu">
-                    <li><a href="pass-view-ticket.php">Checkout</a>
+                    <li><a href="pass-train-checkout-ticket.php">Checkout</a>
                       </li>
-                      <li><a href="pass-view-ticket.php">View</a>
+                      <li><a href="pass-confirm-ticket.php">Confirm Checkout</a>
                       </li>
                       <li><a href="pass-print-ticket.php"><span class="badge badge-primary float-right">New</span>Print</a>
                       </li>
