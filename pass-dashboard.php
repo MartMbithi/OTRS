@@ -57,7 +57,7 @@
             </div>
 
             <div class="col-12 col-lg-6 col-xl-3">
-              <a href="pass-view-ticket.php">
+              <a href="pass-train-checkout-ticket.php">
                 <div class="widget widget-tile">
                   <div class="chart sparkline" ><i class ="material-icons">burst_mode</i></div>
                   <div class="data-info">
