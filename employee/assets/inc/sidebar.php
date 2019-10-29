@@ -54,13 +54,13 @@
                   </li>
                   <li class="parent"><a href="#"><i class="icon mdi mdi-ticket-confirmation"></i><span>Tickets</span></a>
                     <ul class="sub-menu">
-                    <li><a href="pass-train-checkout-ticket.php">View</a>
-                      </li>
-                      <li><a href="pass-print-ticket.php"><span class="badge badge-primary float-right">New</span>Manage</a>
+                      <li><a href="emp-approved-tickets.php"><span class="badge badge-primary float-right">Approved</span>View</a>
+                      <li><a href="emp-pending-tickets.php"><span class="badge badge-primary float-right">Pending</span>View</a>
+                      <li><a href="emp-tickets.php"><span class="badge badge-primary float-right">New</span>Manage</a>
                       </li>
                     </ul>
                   </li>                  
-                  <li><a href="pass-logout.php "><i class="icon mdi mdi-exit-run"></i><span>Log Out</span></a>
+                  <li><a href="emp-logout.php "><i class="icon mdi mdi-exit-run"></i><span>Log Out</span></a>
                   </li>
                 </ul>
               </div>
