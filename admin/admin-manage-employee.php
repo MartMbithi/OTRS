@@ -1,130 +1,165 @@
+<!--Start Server side code to give us and hold session-->
 <?php
-session_start();
-error_reporting(0);
-include('includes/config.php');
-if(strlen($_SESSION['alogin'])==1)
-	{
-header('location:index.php');
-}
-else{
+  session_start();
+  include('assets/inc/config.php');
+  include('assets/inc/checklogin.php');
+  check_login();
+  $aid=$_SESSION['admin_id'];
+  //delete or remove library user  php code
 if(isset($_GET['del']))
 {
-$id=$_GET['del'];
-$sql = "delete from employee WHERE id=:id";
-$query = $dbh->prepare($sql);
-$query -> bindParam(':id',$id, PDO::PARAM_STR);
-$query -> execute();
-$msg="Employee Records Successfully Removed";
+      $id=intval($_GET['del']);
+      $adn="delete from orrs_employee where emp_id=?";
+      $stmt= $mysqli->prepare($adn);
+      $stmt->bind_param('i',$id);
+      $stmt->execute();
+      $stmt->close();	 
 
+        if($stmt)
+        {
+          $succ = "Employee Details Removed";
+        }
+          else
+          {
+            $err = "Try Again Later";
+          }
 }
 ?>
-<?php include("includes/header.php")?>
-<body class="cbp-spmenu-push">
-	<div class="main-content">
-	<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-		<!--left-fixed -navigation-->
-		<?php include("includes/sidebar.php")?>
-	</div>
-		<!--left-fixed -navigation-->
-		
-		<!-- header-starts -->
-		<?php include("includes/navbar.php")?>
-		<!-- //header-ends -->
-		<!-- main content start-->
-		<div id="page-wrapper">
-			<div class="main-page">
-				<div class="tables">
-                <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php }
-				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
+<!--End Server side scriptiing-->
+<!DOCTYPE html>
+<html lang="en">
+<!--HeAD-->
+  <?php include('assets/inc/head.php');?>
+ <!-- end HEAD--> 
+  <body>
+    <div class="be-wrapper be-fixed-sidebar">
+    <!--navbar-->
+      <?php include('assets/inc/navbar.php');?>
+      <!--End navbar-->
+      <!--Sidebar-->
+      <?php include('assets/inc/sidebar.php');?>
+      <!--End Sidebar-->
 
-					<h2 class="title1">Railway Management System Employee Details</h2>
-                    
-					
-					<div class="bs-example widget-shadow" data-example-id="contextual-table"> 
-						
-						<table class="table"> <thead> <tr> <th>#</th>
-                         <th> Name</th>
-                          <th>National ID No.</th> 
-                          <th>Address</th>
-                          <th>Age</th>
-                          <th>Phone No.</th>
-                          <th>Email</th>
-                          <th>Manage</th>
-                           </tr>
-                            </thead>
-                             <tbody>
-                             <?php $sql = "SELECT * from  employee";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{				?>
-                                            <td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($result->name);?></td>
-											<td><?php echo htmlentities($result->idno);?></td>
-											<td><?php echo htmlentities($result->address);?></td>
-                                            <td><?php echo htmlentities($result->age);?></td>
-                                            <td><?php echo htmlentities($result->phone);?></td>
-                                            <td><?php echo htmlentities($result->email);?></td>
-                                            <!--
-                                            <td><?php echo htmlentities($result->phone);?></td>
-                                            <td><?php echo htmlentities($result->ailment);?></td>
-                                          <td><?php echo htmlentities($result->password);?></td>-->
-                                            <td><a href="admin-manage-employee.php?del=<?php echo $result->id;?>" onclick="return confirm('Do You Want To Remove This Employee Record ?');"><i class="fa fa-trash-o"></i></a></td>
-										</tr> 
-                         </tbody> 
-                         <?php $cnt=$cnt+1; }} ?>
-                         </table> 
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		<!--footer-->
-		<?php include("includes/footer.php")?>
-        <!--//footer-->
-	</div>
-	
-	<!-- side nav js -->
-	<script src='js/SidebarNav.min.js' type='text/javascript'></script>
-	<script>
-      $('.sidebar-menu').SidebarNav()
+      <div class="be-content">
+      <div class="page-head">
+          <h2 class="page-head-title">Manage Employees</h2>
+          <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb page-head-nav">
+              <li class="breadcrumb-item"><a href="emp-dashboard.php">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="#">Employee</a></li>
+              <li class="breadcrumb-item active">Manage</li>
+            </ol>
+          </nav>
+        </div>
+        <?php if(isset($succ)) {?>
+                                <!--This code for injecting an alert-->
+                <script>
+                            setTimeout(function () 
+                            { 
+                                swal("Success!","<?php echo $succ;?>!","success");
+                            },
+                                100);
+                </script>
+
+        <?php } ?>
+        <?php if(isset($err)) {?>
+        <!--This code for injecting an alert-->
+                <script>
+                            setTimeout(function () 
+                            { 
+                                swal("Failed!","<?php echo $err;?>!","Failed");
+                            },
+                                100);
+                </script>
+
+        <?php } ?>
+
+        <div class="main-content container-fluid">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card card-table">
+                <div class="card-header">Employees
+                  <div class="tools dropdown"><span class="icon mdi mdi-download"></span><a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"><span class="icon mdi mdi-more-vert"></span></a>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                      <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <table class="table table-striped table-hover table-fw-widget" id="table1">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>National ID No.</th>
+                        <th>Phone No</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                      </tr> 
+                    </thead>
+                    <tbody>
+                    <?php
+                        /*
+                        *Lets get details of available trains!!
+                        */
+                        $ret="SELECT * FROM orrs_employee"; //sql code to get all details of trains.
+                        $stmt= $mysqli->prepare($ret) ;
+                        $stmt->execute() ;//ok
+                        $res=$stmt->get_result();
+                        $cnt=1;
+                        while($row=$res->fetch_object())
+                        {
+                    ?>
+                      <tr class="odd gradeX even gradeC odd gradeA even gradeA ">
+                        <td><?php echo $row->emp_fname;?><?php echo $row->emp_lname;?></td>
+                        <td><?php echo $row->emp_nat_idno;?></td>
+                        <td><?php echo $row->emp_phone;?></td>
+                        <td><?php echo $row->emp_addr;?></td>
+                        <td class="center"><?php echo $row->emp_email;?></td>
+                        <td class="center"><a class ="badge badge-success" href ="admin-update-employee.php?emp_id=<?php echo $row->emp_id;?>">Update</a> 
+                            <a class ="badge badge-danger" href ="admin-manage-employee.php?del=<?php echo $row->emp_id;?>">Delete</a>
+                            <a class ="badge badge-primary" href ="admin-view-employee.php?emp_id=<?php echo $row->emp_id;?>">View</a>
+                        </td>                      
+                      </tr>
+                        <?php }?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+         <!--footer-->
+         <?php include('assets/inc/footer.php');?>
+         <!--End Footer-->
+        </div>
+      </div>
+     
+    </div>
+    <script src="assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/lib/perfect-scrollbar/js/perfect-scrollbar.min.js" type="text/javascript"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="assets/js/app.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/datatables.net/js/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/datatables.net-bs4/js/dataTables.bootstrap4.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/jszip/jszip.min.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/pdfmake/pdfmake.min.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/pdfmake/vfs_fonts.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/datatables.net-responsive/js/dataTables.responsive.min.js" type="text/javascript"></script>
+    <script src="assets/lib/datatables/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+      	//-initialize the javascript
+      	App.init();
+      	App.dataTables();
+      });
     </script>
-	<!-- //side nav js -->
-	
-	<!-- Classie --><!-- for toggle left push menu script -->
-		<script src="js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				body = document.body;
-				
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			
-			function disableOther( button ) {
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-			}
-		</script>
-	<!-- //Classie --><!-- //for toggle left push menu script -->
-	
-	<!--scrolling js-->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
-	<!--//scrolling js-->
-	
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.js"> </script>
-	
-</body>
+  </body>
+
 </html>
-<?}?>
