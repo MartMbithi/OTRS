@@ -91,7 +91,7 @@
                   </div>
                 </form>
                 <!--End Login-->
-                <div class="splash-footer">Back <a href = "index.php ">Home/a></div>
+                <div class="splash-footer">Back <a href = "../index.php">Home</a></div>
 
               </div>
             </div>
