@@ -5,7 +5,7 @@ ORRS-Orion Railway Reservation  System is a web application crafted using core p
 <hr>
 # 1 Dummy Passenger Account
 <hr>
-![main screen 2](https://github.com/MartMbithi/OTRS/blob/master/pass-dashboard.png)
+![main screen 2](https://github.com/MartMbithi/OTRS/blob/master/pass-dashboard.png)<br>
 <hr>
 email = admin@orrs.com<br>
 password = demo
@@ -14,8 +14,8 @@ password = demo
 <hr>
 
 <hr>
-![main screen 3](https://github.com/MartMbithi/OTRS/blob/master/admin-dash.png)
-![main screen 3](https://github.com/MartMbithi/OTRS/blob/master/emp-dashboard.png)
+![main screen 3](https://github.com/MartMbithi/OTRS/blob/master/admin-dash.png)<br>
+![main screen 3](https://github.com/MartMbithi/OTRS/blob/master/emp-dashboard.png)<br>
 
 <hr>
 # 2 Dummy Admin Account
