@@ -18,8 +18,9 @@ password = demo
 ![main screen 3](https://github.com/MartMbithi/OTRS/blob/master/emp-dashboard.png)<br>
 
 <hr>
-# 2 Dummy Admin Account
-email = admin@ohcms.com
+<br>
+# 2 Dummy Admin Account<br>
+email = admin@ohcms.com<br>
 Password = admin
 <hr>
 
