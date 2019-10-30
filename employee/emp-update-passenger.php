@@ -85,7 +85,7 @@
         <?php } ?>
         <div class="main-content container-fluid">
        
-       <!--Train Details forms-->
+       <!--passenger-->
        <?php
             $aid=$_GET['pass_id'];
             $ret="select * from orrs_passenger where pass_id=?";

@@ -81,11 +81,10 @@
                           <label class="custom-control-label" for="check1">Remember Me</label>
                         </div>
                       </div>
-                      <div class="col-6 login-forgot-password"><a href="../pass-pwd-forgot.php">Forgot Password?</a></div>
+                      <div class="col-6 login-forgot-password"><a target = "_blank" href="../pass-pwd-forgot.php">Forgot Password?</a></div>
                     </div>
 
                     <div class="form-group row login-submit">
-                      <div class="col-6"><a class="btn btn-secondary btn-xl" href="emp-signup.php">Register</a></div>
                       <div class="col-6"><input type = "submit" name ="emp_login" class="btn btn-primary btn-xl" value ="Log In"></div>
                     </div>
                     
@@ -94,6 +93,8 @@
                 <!--End Login-->
               </div>
             </div>
+            <div class="splash-footer">Back <a href = "index.php ">Home/a></div>
+
             <div class="splash-footer">&copy; 2019 - <?php echo date ('Y');?> Orion Railway Reservation System | Powered By <a href = "https://martmbithi.github.io" target ="_blank" >MartDevelopers</a></div>
           </div>
         </div>

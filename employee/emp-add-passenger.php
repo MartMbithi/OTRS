@@ -60,12 +60,12 @@
             </ol>
           </nav>
         </div>
-            <?php if(isset($success)) {?>
+        <?php if(isset($success)) {?>
                                 <!--This code for injecting an alert-->
                 <script>
                             setTimeout(function () 
                             { 
-                                swal("Success!","<?php echo $succ;?>!","success");
+                                swal("Success!","<?php echo $success;?>!","success");
                             },
                                 100);
                 </script>
