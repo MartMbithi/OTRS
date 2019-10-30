@@ -9,13 +9,14 @@ ORRS-Orion Railway Reservation  System is a web application crafted using core p
 
 <hr>
 
-**1 Dummy Passenger Account
+# 1 Dummy Passenger Account
 <hr>
 email = admin@orrs.com<br>
 password = demo
 <hr>
 <br>
-**2 Dummy Admin Account<br>
+<hr>
+# 2 Dummy Admin Account<br>
 email = admin@ohcms.com<br>
 Password = admin
 <hr>
