@@ -64,24 +64,24 @@
         </div>
             <?php if(isset($success)) {?>
                                 <!--This code for injecting an alert-->
-                <script>
-                            setTimeout(function () 
-                            { 
-                                swal("Success!","<?php echo $success;?>!","success");
-                            },
-                                100);
-                </script>
+            <script>
+              setTimeout(function () 
+              { 
+                  swal("Success!","<?php echo $success;?>!","success");
+              },
+                  100);
+            </script>
 
         <?php } ?>
         <?php if(isset($err)) {?>
         <!--This code for injecting an alert-->
-                <script>
-                            setTimeout(function () 
-                            { 
-                                swal("Failed!","<?php echo $err;?>!","Failed");
-                            },
-                                100);
-                </script>
+        <script>
+          setTimeout(function () 
+          { 
+              swal("Failed!","<?php echo $err;?>!","Failed");
+          },
+              100);
+        </script>
 
         <?php } ?>
         <div class="main-content container-fluid">
