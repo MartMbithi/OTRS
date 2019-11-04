@@ -75,7 +75,15 @@
                       <li><a href="emp-pending-pwdresets.php"><span class="badge badge-primary float-right">Pending</span>View</a>
                       </li>
                     </ul>
-                  </li>                  
+                  </li> 
+
+                  <li class="parent"><a href="#"><i class="icon mdi  mdi-ticket-account"></i><span>Accounting</span></a>
+                    <ul class="sub-menu">
+                      <li><a href="emp-view-accounting.php"><span class="badge badge-primary float-right">Ticket Payments</span>View</a>
+                      </li>
+                    </ul>
+                  </li>   
+
                   <li><a href="emp-logout.php "><i class="icon mdi mdi-exit-run"></i><span>Log Out</span></a>
                   </li>
                 </ul>
