@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 30, 2019 at 03:46 PM
+-- Generation Time: Nov 07, 2019 at 01:33 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.26
 
@@ -43,7 +43,7 @@ CREATE TABLE `orrs_admin` (
 --
 
 INSERT INTO `orrs_admin` (`admin_id`, `admin_fname`, `admin_lname`, `admin_email`, `admin_uname`, `admin_pwd`, `admin_dpic`) VALUES
-(1, 'System ', 'Admin', 'admin@orrs.com', 'Administrator', 'adcd7048512e64b48da55b027577886ee5a36350', 'avatar-150.png');
+(1, 'System ', 'Admin', 'admin@orrs.com', 'Administrator', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'avatar-150.png');
 
 -- --------------------------------------------------------
 
@@ -98,15 +98,6 @@ CREATE TABLE `orrs_passenger` (
   `pass_train_fare` varchar(200) NOT NULL,
   `pass_fare_payment_code` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `orrs_passenger`
---
-
-INSERT INTO `orrs_passenger` (`pass_id`, `pass_fname`, `pass_lname`, `pass_phone`, `pass_addr`, `pass_email`, `pass_pwd`, `pass_dpic`, `pass_uname`, `pass_bday`, `pass_bio`, `pass_train_number`, `pass_train_name`, `pass_dep_station`, `pass_dep_time`, `pass_arr_station`, `pass_train_fare`, `pass_fare_payment_code`) VALUES
-(1, 'Mbithi', 'Mbithi', '+254737229776', '127.0.0.1', 'martdevelopers254@gmail.com', 'df0056bf1e9ee39794c7680a186bed41a7d5c0ec', '1.png', 'Mart', '13 July 1998', 'Developer Web Artisan', 'T-002', 'Admiraal de Ruijter', 'Nairobi', '01:00', 'Kisumu', '2500', 'KTM129NUD9'),
-(2, 'System', 'Admin', '+254740847563', '127001 Localhost', 'admin@orrs.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', '', 'Admin', '', '', '', '', '', '', '', '', ''),
-(3, 'Merlin', 'Merlin', '0704031263', '127.0.0.1 localhost', 'malcom@mail.com', 'a69681bcf334ae130217fea4505fd3c994f5683f', '', 'MMalcom', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
