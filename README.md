@@ -16,7 +16,7 @@ password = demo
 <hr>
 <br>
 <hr>
-# 2 Dummy Admin Account<br>
+<b>2 Dummy Admin Account<b><br>
 email = admin@ohcms.com<br>
 Password = admin
 <hr>
